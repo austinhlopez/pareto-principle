@@ -80,10 +80,3 @@ class ParetoAnalyzer:
         itemRange = self.userGroups[lo: hi+1]
         fullList = reduce(lambda a,b: a+b, itemRange)
         return fullList
-
-        
-testP = ParetoAnalyzer(sys.argv[1])
-print testP.cdf
-print testP.get_range_info(99,100)
-print testP.get_items_in_range(9,12)
-
