@@ -24,7 +24,7 @@ class ParetoAnalyzer:
             return sortedItems            
 
         except IOError as e:
-            print "BULLOCKS", e
+            print e
 
 
     def calculate_percentiles(self, sortedData):
@@ -65,10 +65,10 @@ class ParetoAnalyzer:
         rangeUserPercent = float(rangeUserTotal)/self.totalUsers
 
         #return a dict of this stuff
-        return {'revPercent' : rangeRevPercent,
+        return {'revPercent' : rangeRevPercent*100,
                 'revTotal' : rangeRev,
-                'itemPercent' : int(rangeUserPercent*100),
-                'itemTotal' : rangeUserTotal }
+                'idPercent' : rangeUserPercent*100,
+                'idTotal' : rangeUserTotal }
 
         
     def get_items_in_range(self, lo, hi):
