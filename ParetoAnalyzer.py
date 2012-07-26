@@ -24,7 +24,7 @@ class ParetoAnalyzer:
             return sortedItems            
 
         except IOError as e:
-            print "BULLOCKS", e
+            print e
 
 
     def calculate_percentiles(self, sortedData):
@@ -65,10 +65,10 @@ class ParetoAnalyzer:
         rangeUserPercent = float(rangeUserTotal)/self.totalUsers
 
         #return a dict of this stuff
-        return {'revPercent' : rangeRevPercent,
+        return {'revPercent' : rangeRevPercent*100,
                 'revTotal' : rangeRev,
-                'itemPercent' : int(rangeUserPercent*100),
-                'itemTotal' : rangeUserTotal }
+                'idPercent' : rangeUserPercent*100,
+                'idTotal' : rangeUserTotal }
 
         
     def get_items_in_range(self, lo, hi):
@@ -80,3 +80,16 @@ class ParetoAnalyzer:
         itemRange = self.userGroups[lo: hi+1]
         fullList = reduce(lambda a,b: a+b, itemRange)
         return fullList
+
+    def save_range(self, lo, hi):
+        fileName = str(lo)+'_'+str(hi)+".csv"
+        fileOut = open(fileName, 'w')
+
+        fileOut.write("ID, Value\n")
+        items = self.get_items_in_range(lo, hi)
+        for i in items:
+            val = "%.2f" %i[1]
+            fileOut.write(str(i[0])+", "+val+"\n")
+        fileOut.close()
+        return fileName
+
