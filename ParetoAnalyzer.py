@@ -80,3 +80,16 @@ class ParetoAnalyzer:
         itemRange = self.userGroups[lo: hi+1]
         fullList = reduce(lambda a,b: a+b, itemRange)
         return fullList
+
+    def save_range(self, lo, hi):
+        fileName = str(lo)+'_'+str(hi)+".csv"
+        fileOut = open(fileName, 'w')
+
+        fileOut.write("ID, Value\n")
+        items = self.get_items_in_range(lo, hi)
+        for i in items:
+            val = "%.2f" %i[1]
+            fileOut.write(str(i[0])+", "+val+"\n")
+        fileOut.close()
+        return fileName
+
