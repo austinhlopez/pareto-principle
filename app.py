@@ -80,7 +80,7 @@ class rightPanel(wx.Panel):
 
     def buttonClick(self, event):
         results = Results(None, 'Results')
-        print self.fileUpload
+        
         results.Show()        
         results.create_pareto(self.fileUpload.GetValue())
 
