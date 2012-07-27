@@ -85,11 +85,11 @@ class ParetoAnalyzer:
         fileName = str(lo)+'_'+str(hi)+".csv"
         fileOut = open(fileName, 'w')
 
-        fileOut.write("ID, Value\n")
+        fileOut.write("ID, Value\r\n")
         items = self.get_items_in_range(lo, hi)
         for i in items:
             val = "%.2f" %i[1]
-            fileOut.write(str(i[0])+", "+val+"\n")
+            fileOut.write(str(i[0])+", "+val+"\r\n")
         fileOut.close()
         return fileName
 

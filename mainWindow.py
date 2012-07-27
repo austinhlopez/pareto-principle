@@ -3,14 +3,14 @@ import wx
 from ParetoAnalyzer import ParetoAnalyzer
 class Results(wx.Frame):
     def __init__(self, parent, title):
-        wx.Frame.__init__(self, parent, title=title, size=(640,400))
+        wx.Frame.__init__(self, parent, title="Pareto Principle", size=(640,400))
         self.Bind(wx.EVT_CLOSE, self.OnClose)
         panel = wx.Panel(self)
         box = wx.BoxSizer(wx.VERTICAL)
 
-        self.headFont = wx.Font(16, wx.FONTFAMILY_DEFAULT, wx.FONTWEIGHT_BOLD, wx.FONTSTYLE_NORMAL)
-        self.bigNumberFont = wx.Font(64, wx.FONTFAMILY_SWISS, wx.FONTWEIGHT_BOLD, wx.FONTSTYLE_NORMAL)
-        self.regNumberFont = wx.Font(42, wx.FONTFAMILY_SWISS, wx.FONTWEIGHT_BOLD, wx.FONTSTYLE_NORMAL)
+        self.headFont = wx.Font(16, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD)
+        self.bigNumberFont = wx.Font(64, wx.FONTFAMILY_SWISS, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD)
+        self.regNumberFont = wx.Font(42, wx.FONTFAMILY_SWISS, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD)
         
         button = wx.Button(panel, -1)
         button.SetPosition((450, 320))

@@ -76,6 +76,7 @@ class rightPanel(wx.Panel):
 
 
     def populateTextCtrl(self, filePath):
+        self.fileUpload.Clear()
         self.fileUpload.WriteText(filePath);
 
     def buttonClick(self, event):
